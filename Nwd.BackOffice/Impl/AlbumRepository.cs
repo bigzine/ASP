@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.IO;
 using System.Web;
 using Nwd.BackOffice.Model;
@@ -160,6 +160,21 @@ namespace Nwd.BackOffice.Impl
                 file.SaveAs( physPath );
             }
             return fileName;
+        }
+
+
+        public  void DeleteAlbum(Album album)
+        {
+            if(AlbumExists(album ))
+            {
+                using (var ctx = new NwdMusikEntities())
+                {
+                    ctx.Albums.Remove(album);
+                }
+               
+            }
+
+            else throw new Exception("Album is missing "+album.Id+" title "+album.Title+" liste des album");
         }
     }
 }

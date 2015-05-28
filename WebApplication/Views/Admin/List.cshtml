@@ -1,0 +1,37 @@
+﻿@model WebApplication.Models.AlbumViewModels
+@{
+    ViewBag.Title = "Albums";
+}
+
+<h2>Albums</h2>
+<table>
+
+    <tr>
+        <th></th>
+        <th>
+            Titre
+        </th>
+        <th>
+            Durée
+        </th>
+        <th>
+            Année
+        </th>
+        <th>
+            Genre
+        </th>
+
+    </tr>
+
+    @foreach (var album in Model.AlbumList)
+    {
+        <tr>
+            <td>
+             @album.Title //  @Html.ActionLink("Delete", "Delete", new { id = album.Id })
+            </td>
+        </tr>
+       
+
+    }
+
+</table>
